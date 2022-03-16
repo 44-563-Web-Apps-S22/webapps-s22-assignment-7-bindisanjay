@@ -61,5 +61,83 @@
         <div class="col-sm-1"><img src="Tree.jpg" id = "24"   onclick = "check(24)" alt="lav" style="width: 100px;height: 100px; padding-bottom: 5%;"></div>
     </div>
 
+    <script>
+        var ids=["0", "1", "2", "3", "4", "5", "6","7", "8", "9", "10", "11", "12", "13", "14", "15", 
+        "16", "17", "18", "19", "20", "21", "22", "23", "24"]
+        var shakeCount=0
+        var birdLocation = 18
+
+        function check(position)
+    {
+        id= ids[position]
+        image_pos= document.getElementById(id)
+       if(ids[position]==birdLocation) 
+            image_pos.src="nightingale.jpg"
+       else    
+            image_pos.src="nest.jpg"
+
+       shakeCount=shakeCount+1
+       document.getElementById("shakes").innerHTML = "Number of shakes is " + shakeCount;
+       document.getElementById("score").innerHTML="The score is "+ locationScore(position, birdLocation); 
+    }
+
+    function locationScore(pos1, pos2)
+    {
+        document.getElementById(ids[pos1])
+            var m,n;
+            m=n=5;
+            let mat=[
+
+                    [0,1,2,3,4],
+                    [5,6,7,8,9],
+                    [10,11,12,13,14],
+                    [15,16,17,18,19],
+                    [20,21,22,23,24]
+
+            ];
+            for(let i=0; i<mat.length;i++)
+          {
+              for(let j=0;j<mat[i].length;j++)
+              {
+                  if(pos1==mat[i][j])
+                  {
+                      row1=i
+                      col1=j
+                  }
+              }
+          }
+          for(let i=0; i<mat.length;i++)
+          {
+              for(let j=0;j<mat[i].length;j++)
+              {
+                  if(pos2==mat[i][j])
+                  {
+                      row2=i
+                      col2=j
+                  }
+              }
+          }
+  
+          if(row1==row2)
+          {
+           return 1
+          }
+          else if(col1==col2)
+          {
+            return 1
+          }
+          else if (Math.abs(pos1-pos2)==4 || Math.abs(pos1-pos2)==6)
+          {
+           return 1
+          }
+          else
+          {
+           return 0
+         }
+  
+         }
+
+
+    </script>
 </body>
 </html>
