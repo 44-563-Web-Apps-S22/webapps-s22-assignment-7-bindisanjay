@@ -12,13 +12,14 @@
     integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
 </head>
 <body>
+
+    
     <div  class="container-fluid mt-3">
         <div class="d-inline p-2 m-3 bg-success text-white centre">Click on the squares to search for bird.</div>
         <div class="d-inline p-2 m-3 bg-info text-white" id="shakes"> Number of shakes is zero.</div>
         <div class="d-inline p-2 m-3 bg-info text-white" id="score"> Location score is unknown.</div>
     </div>
     <br>
-
     <div class="image-grid d-flex flex-column justify-content-center align-items-center"></div>
     <div class="row">
         <div class="col-sm-1"><img src="Tree.jpg" id = "0" onclick = "check(0)" alt="lav" style="width: 100px;height: 100px; padding-bottom: 5%;"></div>
@@ -139,7 +140,7 @@
            return 0
          }
          }
-         
+
          function newGame(){
             shakeCount=0;
             birdlLocation = Math.floor(Math.random() * (25-0) + 0);
