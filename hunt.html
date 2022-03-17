@@ -60,25 +60,26 @@
         <div class="col-sm-1"><img src="Tree.jpg" id = "23"   onclick = "check(23)" alt="lav" style="width: 100px;height: 100px; padding-bottom: 5%;"></div>
         <div class="col-sm-1"><img src="Tree.jpg" id = "24"   onclick = "check(24)" alt="lav" style="width: 100px;height: 100px; padding-bottom: 5%;"></div>
     </div>
-
+    <button type="button" class="btn btn-info" onclick="newGame()">New Game</button>
     <script>
         var ids=["0", "1", "2", "3", "4", "5", "6","7", "8", "9", "10", "11", "12", "13", "14", "15", 
         "16", "17", "18", "19", "20", "21", "22", "23", "24"]
         var shakeCount=0
         var birdLocation = 18
+        var distanceOfbird = "unknown"; 
 
         function check(position)
     {
         id= ids[position]
         image_pos= document.getElementById(id)
        if(ids[position]==birdLocation) 
-       
+
             image_pos.src ="Nightingale.jpg"
 
        else    
             image_pos.src="nest.jpg"
 
-       shakeCount=shakeCount+1
+       shakeCount++;
        document.getElementById("shakes").innerHTML = "Number of shakes is " + shakeCount;
        document.getElementById("score").innerHTML="The score is "+ locationScore(position, birdLocation); 
     }
@@ -139,6 +140,18 @@
   
          }
 
+         function newGame(){
+            shakeCount=0;
+            birdlLocation = Math.floor(Math.random() * (25-0) + 0);
+            document.getElementById("shakes").innerHTML = "Number of shakes is zero";
+            distanceOfbird = "unknown"
+            document.getElementById("score").innerHTML = "Distance is " + distanceOfbird;
+            for (var i = 0; i < 24; i++) {
+           
+            document.getElementById(ids[i]).src = "tree.jpg";
+        }
+
+         }
 
     </script>
 </body>
